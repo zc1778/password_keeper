@@ -5,8 +5,7 @@
 # Ideally, data should hold whatever request is passed into itand further logic may be written to hand more specific cases.
 
 def add_entry(cursor, data):
-    cursor.execute("INSERT INTO entries VALUES ...")
-    cursor.commit()
+    cursor.execute("INSERT INTO entries (password) VALUES (?)", (data,))
 
 def remove_entry(cursor, data):
     cursor.execute("DELETE FROM entries WHERE ... ")
@@ -19,3 +18,21 @@ def update_entry(cursor, data):
 def get_entry(cursor, data):
     result = cursor.execute("SELECT ... FROM ... WHERE ...")
     cursor.commit()
+
+def get_all_entries(cursor):
+    result = cursor.execute("SELECT * FROM entries")
+    print(result)
+
+
+
+
+
+
+# CITATION STUFF
+# https://stackoverflow.com/questions/16856647/sqlite3-programmingerror-incorrect-number-of-bindings-supplied-the-current-sta  error with insert into statement, needed a comma
+# https://stackoverflow.com/questions/48218065/objects-created-in-a-thread-can-only-be-used-in-that-same-thread error with connection object, calling across files maybe but just moved them into scope of the functions for now
+# https://www.geeksforgeeks.org/python/inserting-variables-to-database-table-using-python/ needed syntax for inserting with variables
+#
+#
+#
+#
