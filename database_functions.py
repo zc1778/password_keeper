@@ -4,8 +4,14 @@
 #                                                               and passed into the function from there.
 # Ideally, data should hold whatever request is passed into itand further logic may be written to hand more specific cases.
 
-def add_entry(cursor, data):
+import sqlite3
+
+def add_entry(data):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor()
     cursor.execute("INSERT INTO entries (password) VALUES (?)", (data,))
+    con.commit()
+    con.close()
 
 def remove_entry(cursor, data):
     cursor.execute("DELETE FROM entries WHERE ... ")
