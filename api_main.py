@@ -30,7 +30,7 @@ def get_entry():
 
 @app.route("/credentials/getall")
 def get_all_entries():
-    data = request.args.get('pass')
+    data = request.args.get('')
     database_functions.get_all_entries(data)
     return "Successfully Displayed All!"
 

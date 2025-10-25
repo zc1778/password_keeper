@@ -9,12 +9,13 @@ import sqlite3
 def add_entry(data):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor()
-    cursor.execute("INSERT INTO entries (password) VALUES (?)", (data,))
+    #cursor.execute("INSERT INTO entries (password) VALUES (?)", (data,))
+    cursor.execute("INSERT INTO entries (name, username, password, email, note) VALUES (?, ?, ?, ?, ?)", (data,))
     con.commit()
     con.close()
 
 def remove_entry(cursor, data):
-    cursor.execute("DELETE FROM entries WHERE ... ")
+    cursor.execute("DELETE FROM entries (password) WHERE  ... ")
     cursor.commit()
 
 def update_entry(cursor, data):
@@ -25,9 +26,14 @@ def get_entry(cursor, data):
     result = cursor.execute("SELECT ... FROM ... WHERE ...")
     cursor.commit()
 
-def get_all_entries(cursor):
-    result = cursor.execute("SELECT * FROM entries")
+def get_all_entries(data):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor()
+    result = cursor.execute("SELECT * FROM entries", (data,))
     print(result)
+    con.commit()
+    con.close()
+
 
 
 
