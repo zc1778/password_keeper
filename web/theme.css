@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+}
+
+p {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#body_container {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    text-align: center;
+    border-style: solid;
+    border-width: 5px;
+    border-color: aqua;
+}
+
+#login_button, #signup_button {
+    border-radius: 15px;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5%;
+    margin-bottom: 25%;
+    padding: 1%;
+    background-color: aqua;
+    border-color: aqua;
+}
+
+#login_button {
+    margin-right: 5%;
+}
+
+#logo_img {
+    width: 20%;
+    height: 20%;
+}
