@@ -3,11 +3,21 @@ import database_functions
 
 app = Flask(__name__)
 
-@app.route("/credentials/add")
-def add_entry():
+
+
+@app.route("/credentials/addmast")
+def add_master():
     data = request.args.get('pass')
-    database_functions.add_entry(data)
+    database_functions.add_master(data)
     return "Successfully Added!"
+
+
+@app.route("/credentials/getmast")
+def get_master():
+    data = request.args.get('pass')
+    database_functions.get_master(data)
+    return "Successfully Gotten!"
+
 
 # @app.route("/credentials/remove")
 # def remove_entry():
