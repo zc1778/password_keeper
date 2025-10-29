@@ -1,10 +1,18 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
     background-color: black;
 }
 
 p {
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5%;
+}
+
+label {
+    color: white;
 }
 
 #body_container {
@@ -18,12 +26,13 @@ p {
     border-color: aqua;
 }
 
-#login_button, #signup_button {
+button, #registration_button, #login_button {
     border-radius: 15px;
     font-size: large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 5%;
     margin-bottom: 25%;
+    margin-right: 5%;
+    margin-left: 5%;
     padding: 1%;
     background-color: aqua;
     border-color: aqua;
@@ -33,7 +42,16 @@ p {
     margin-right: 5%;
 }
 
+#registration_button {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 #logo_img {
     width: 20%;
     height: 20%;
+}
+
+input {
+    margin-bottom: 5%;
 }
