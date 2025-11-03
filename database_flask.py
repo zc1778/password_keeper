@@ -16,7 +16,7 @@ def get_data():
 def table_open():
    conn = get_data()   # Connect to SQLite database
    cursor= conn.cursor
-   cursor.execute("CREATE TABLE IF NOT EXISTS entries (name, username, email, password, note)")     
+   cursor.execute("CREATE TABLE IF NOT EXISTS entries (email, username, password, service, note)")     
    conn.commit()
    conn.close()
    return jsonify (good=f"Table created successfully!")

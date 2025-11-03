@@ -8,14 +8,14 @@ app = Flask(__name__)
 @app.route("/credentials/addmast")
 def add_master():
     data = request.args.get('pass')
-    database_functions.add_master(data)
+    database_functions.add_master(data, data)
     return "Successfully Added!"
 
 
 @app.route("/credentials/getmast")
 def get_master():
     data = request.args.get('pass')
-    database_functions.get_master(data)
+    database_functions.get_master(data, data)
     return "Successfully Gotten!"
 
 
