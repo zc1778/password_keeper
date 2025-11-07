@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/48148131/how-can-we-call-one-route-from-another-route-with-parameters-in-flask
+-- Route swapping with redirect
+
+https://dulangirathnapala.medium.com/how-to-add-images-to-html-in-a-flask-app-4dbcc92e3aeb
+-- Flask Friendly image loading
+
+https://www.geeksforgeeks.org/python/how-to-use-css-in-python-flask/
+-- Flask Friendly CSS loading
+
