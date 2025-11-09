@@ -7,49 +7,93 @@
 import sqlite3
 
 
-def add_master(data):
+
+
+#Here is the master_account functions for username and password
+
+
+def add_master(master_user, master_password):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor()
-    #cursor.execute("INSERT INTO entries (password) VALUES (?)", (data,))
-    cursor.execute("INSERT INTO master_account (account_id, master_user) VALUES (?, ?)", (data,))
+    cursor.execute("INSERT INTO master_account (master_user, master_password) VALUES (?, ?)", 
+                   (master_user, master_password)
+                   )
     con.commit()
     con.close()
 
 
-def get_master(cursor, data):
+def get_master(master_user):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor() 
-    get_test = [row[0] for row in cursor.fetchall()]
-    print(get_test)
+    cursor.execute("SELECT accountID, master_user, master_password FROM master_account WHERE master_user = ?",
+                   (master_user,)
+    )
+    get_results = cursor.fetchone()[0]
+    con.close()
+    return get_results
 
 
-# def add_entry(data):
-#     con = sqlite3.connect("password_keeper.db")
-#     cursor = con.cursor()
-#     #cursor.execute("INSERT INTO entries (password) VALUES (?)", (data,))
-#     cursor.execute("INSERT INTO entries (name, username, password, email, note) VALUES (?, ?, ?, ?, ?)", (data,))
-#     con.commit()
-#     con.close()
 
-# def remove_entry(cursor, data):
-#     cursor.execute("DELETE FROM entries (password) WHERE  ... ")
-#     cursor.commit()
+#Here is the entries functions for add, remove, update, delete, get service, and get all entries.
 
-# def update_entry(cursor, data):
-#     cursor.execute("UPDATE entries SET ... WHERE ...")
-#     cursor.commit()
 
-# def get_entry(cursor, data):
-#     result = cursor.execute("SELECT ... FROM ... WHERE ...")
-#     cursor.commit()
 
-# def get_all_entries(data):
-#     con = sqlite3.connect("password_keeper.db")
-#     cursor = con.cursor()
-#     result = cursor.execute("SELECT * FROM entries", (data,))
-#     print(result)
-#     con.commit()
-#     con.close()
+def add_entry(master_id, email, username, password, service, note):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO entries (master_id, email, username, password, service, note) VALUES (?, ?, ?, ?, ?, ?)", 
+                   (master_id, email, username, password, service, note)
+                   )
+    con.commit()
+    con.close()
+
+
+
+def remove_entry(id):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM entries where id = ?",
+                   (id,)
+                   )
+    con.commit()
+    con.close()
+
+
+
+def update_entry(email, username, password, note, id):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor()
+    cursor.execute( "UPDATE entries SET email = ?, SET username = ?, SET password = ?, SET note = ?, WHERE id = ?", 
+                   (email, username, password, note, id)
+    )
+    con.commit()
+    con.close()
+
+
+
+
+#This should be used with HTML to have an option where the user can search for passwords by a single service (Example: Google, Blackboard, etc)
+def get_entry_service(service):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor() 
+    cursor.execute("SELECT master_id, email, username, password, service, note FROM entries WHERE service = ?",
+                   (service,)
+    )
+    get_service = cursor.fetchone()
+    con.close()
+    return get_service
+
+
+
+def get_all_entries(master_id):
+    con = sqlite3.connect("password_keeper.db")
+    cursor = con.cursor() 
+    cursor.execute("SELECT * FROM entries  WHERE master_id = ?",
+                   (master_id,)
+    )
+    get_all = cursor.fetchall()
+    con.close()
+    return get_all
 
 
 

@@ -42,21 +42,26 @@ def add():
 
 
 
+#Various Flask Routes for master_table
 
 
-@app.route("/credentials/addmast")
-def add_master():
-    data = request.args.get('pass')
-    database_functions.add_master(data, data)
+
+@app.route("/credentials/add_mast", methods=['POST'])
+def add_master_route():
+    data = request.form.get('master_user')
+    password = request.form.get('master_password')
+    database_functions.add_master(data, password)
     return "Successfully Added!"
 
 
-@app.route("/credentials/getmast")
-def get_master():
+@app.route("/credentials/get_mast")
+def get_master_route():
     data = request.args.get('pass')
     database_functions.get_master(data, data)
     return "Successfully Gotten!"
 
+
+#Various Flask routes for entries
 
 # @app.route("/credentials/remove")
 # def remove_entry():
