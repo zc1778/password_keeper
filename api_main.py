@@ -9,20 +9,22 @@ app = Flask(__name__)
 def index():
    return render_template('index.html')
 
-@app.route('/login')
+@app.route('/login', methods = ["GET", "POST"])
 def login():
+   if request.method == "POST":
+      user_email = request.form.get("email")
+      user_password = request.form.get("password")
    return render_template('login.html')
-   #Listen for login button click
-   #Grab data from HTML Form
    #Cross check database for fail or success
    #if success
    #    return redirect(url_for('home'))
 
-@app.route('/sign_up')
+@app.route('/sign_up', methods = ["GET", "POST"])
 def sign_up():
+   if request.method == "POST":
+      user_email = request.form.get("email")
+      user_password = request.form.get("password")
    return render_template('sign_up.html')
-   #Listen for register button click
-   #Grab data from HTML Form
    #Cross check if info already exists
    #If success
    #    return redirect(url_for('home'))
@@ -31,11 +33,15 @@ def sign_up():
 def home():
    return render_template('home.html')
 
-@app.route('/add')
+@app.route('/add', methods = ["GET", "POST"])
 def add():
+   if request.method == "POST":
+      user_email = request.form.get("email")
+      user_password = request.form.get("password")
+      user_username = request.form.get("username")
+      user_service = request.form.get("service")
+      user_note = request.form.get("note")
    return render_template('add.html')
-   #Listen for add entry button click
-   #Grab data from HTML Form
    #Insert data into database
 
 
