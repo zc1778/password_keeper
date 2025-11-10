@@ -1,3 +1,10 @@
+#Here is a very useful source that shows how retrieve HTML using Flask: 
+#  https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/
+
+
+
+
+
 from flask import Flask, request, render_template, redirect
 import database_functions
 
@@ -5,9 +12,13 @@ app = Flask(__name__)
 
 
 
+#Doing rest tommorow 
+
 @app.route('/index')
 def index():
    return render_template('index.html')
+
+
 
 @app.route('/login')
 def login():
@@ -40,34 +51,33 @@ def add():
 
 
 
-
-
 #Various Flask Routes for master_table
 
 
 
 @app.route("/credentials/add_mast", methods=['POST'])
 def add_master_route():
-    data = request.form.get('master_user')
-    password = request.form.get('master_password')
+    data = request.form.get['master_user']
+    password = request.form.get['master_password']
     database_functions.add_master(data, password)
     return "Successfully Added!"
+
 
 
 @app.route("/credentials/get_mast")
 def get_master_route():
     data = request.args.get('pass')
-    database_functions.get_master(data, data)
+    database_functions.get_master(data)
     return "Successfully Gotten!"
 
 
-#Various Flask routes for entries
 
-# @app.route("/credentials/remove")
-# def remove_entry():
-#     data = request.args.get('pass')
-#     database_functions.remove_entry(data)
-#     return "Successfully Removed! "
+@app.route("/credentials/remove", methods=['POST'])
+def remove_entry():
+     removes = request.form.get[id]
+     data = request.args.get('pass')
+     database_functions.remove_entry(removes)
+     return "Successfully Removed!"
 
 
 # @app.route("/credentials/update")

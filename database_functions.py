@@ -28,7 +28,7 @@ def get_master(master_user):
     cursor.execute("SELECT accountID, master_user, master_password FROM master_account WHERE master_user = ?",
                    (master_user,)
     )
-    get_results = cursor.fetchone()[0]
+    get_results = cursor.fetchone()
     con.close()
     return get_results
 
@@ -72,7 +72,7 @@ def update_entry(email, username, password, note, id):
 
 
 
-#This should be used with HTML to have an option where the user can search for passwords by a single service (Example: Google, Blackboard, etc)
+#This should be used with HTML to have an option where the user can search for passwords by entering a service (Example: Google, Blackboard, etc)
 def get_entry_service(service):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor() 
@@ -96,16 +96,11 @@ def get_all_entries(master_id):
     return get_all
 
 
-
-
-
-
-
 # # CITATION STUFF
 # # https://stackoverflow.com/questions/16856647/sqlite3-programmingerror-incorrect-number-of-bindings-supplied-the-current-sta  error with insert into statement, needed a comma
 # # https://stackoverflow.com/questions/48218065/objects-created-in-a-thread-can-only-be-used-in-that-same-thread error with connection object, calling across files maybe but just moved them into scope of the functions for now
 # # https://www.geeksforgeeks.org/python/inserting-variables-to-database-table-using-python/ needed syntax for inserting with variables
-# #
+# # https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/ 
 # #
 # #
 # #
