@@ -8,15 +8,6 @@ import sqlite3
 con = sqlite3.connect("password_keeper.db")
 cursor = con.cursor()
 # cursor.execute("CREATE TABLE IF NOT EXISTS entries (name, username, email, password, note)")
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS entries (
-               id INTEGER,
-               name TEXT NOT NULL, 
-               username TEXT NOT NULL, 
-               email TEXT NOT NULL, 
-               password TEXT NOT NULL, 
-               note TEXT)
-""")
 
 
 cursor.execute("""
@@ -25,6 +16,24 @@ CREATE TABLE IF NOT EXISTS master_account (
     master_user TEXT NOT NULL,
     master_password TEXT NOT NULL)
 """)
+
+
+
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS entries (
+               id INTEGER PRIMARY KEY AUTOINCREMENT
+               master_id INTEGER NOT NULL
+               email TEXT NOT NULL, 
+               username TEXT NOT NULL, 
+               password TEXT NOT NULL, 
+               service TEXT NOT NULL, 
+               note TEXT,
+               FOREIGN KEY (master_id) REFERENCES master_account (accountID))
+""")
+
+
+
 
 
 # cursor.execute("""
