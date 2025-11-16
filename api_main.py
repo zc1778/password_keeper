@@ -41,8 +41,15 @@ def add():
       user_username = request.form.get("username")
       user_service = request.form.get("service")
       user_note = request.form.get("note")
+      #Insert data into database
+      return render_template('home.html')
    return render_template('add.html')
-   #Insert data into database
+
+@app.route('/browse', methods = ["GET"])
+def browse():
+   #replace test_tuple with a fetch all from cursor
+   test_tuple = (("test", "test", "test"), ("test2", "test2", "test2"))
+   return render_template('browse.html', database_data = test_tuple)
 
 
 
