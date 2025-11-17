@@ -8,12 +8,12 @@
                 <img src="{{ url_for('static', filename='PassWord_Keeper_Logo.png') }}" alt="password keeper logo" id="logo_img">
                 <table id="home_table">
                     <tr>
-                            <td><button class="home_button">Browse</button></td>
+                            <td><a href="{{ url_for('browse') }}"><button class="home_button">Browse</button></a></td>
                             <td><button class="home_button">Search</button></td>
                             <td><button class="home_button">Sort</button></td>
                     </tr>
                     <tr>
-                        <td><button class="home_button">Add Entry</button></td>
+                        <td><a href="{{ url_for('add') }}"><button class="home_button">Add Entry</button></a></td>
                         <td><button class="home_button">Hold</button></td>
                         <td><button class="home_button">Hold</button></td>
                     </tr>

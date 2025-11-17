@@ -6,7 +6,15 @@
         <body>
             <div id="body_container">
                 <img src="{{ url_for('static', filename='PassWord_Keeper_Logo.png') }}" alt="password keeper logo" id="logo_img">
-                
+                <br>
+                <p>
+                {% for i in database_data %}
+                    {{i}}
+                    <br>
+                    <br>
+                {% endfor %}
+                </p>
+                <a href="{{ url_for('home') }}"><button>Home</button></a>
             </div>
         </body>
     </html> 

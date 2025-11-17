@@ -63,7 +63,12 @@ def add():
       database_functions.add_entry(user_email, user_password, user_username, user_service, user_note)
       return redirect(url_for('home'))
    return render_template('add.html')
-   #Insert data into database
+
+@app.route('/browse', methods = ["GET"])
+def browse():
+   #replace test_tuple with a fetch all from cursor
+   test_tuple = (("test", "test", "test"), ("test2", "test2", "test2"))
+   return render_template('browse.html', database_data = test_tuple)
 
 
 
