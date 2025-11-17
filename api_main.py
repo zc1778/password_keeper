@@ -1,5 +1,6 @@
 #Here is a very useful source that shows how retrieve HTML using Flask: 
 #  https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/
+# https://www.bing.com/videos/riverview/relatedvideo&q=flask+html+link+video&&mid=0869F04EAAF5C82134C00869F04EAAF5C82134C0&mmscn=mtsc&aps=660&FORM=VRDGAR 
 
 
 from flask import Flask, request, render_template, redirect
