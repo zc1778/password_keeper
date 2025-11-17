@@ -10,14 +10,14 @@ cursor = con.cursor()
 # cursor.execute("CREATE TABLE IF NOT EXISTS entries (name, username, email, password, note)")
 
 
+
+
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS master_account (
     accountID INTEGER PRIMARY KEY AUTOINCREMENT,
     master_user TEXT NOT NULL,
     master_password TEXT NOT NULL)
 """)
-
-
 
 
 cursor.execute("""
@@ -31,9 +31,6 @@ CREATE TABLE IF NOT EXISTS entries (
                note TEXT,
                FOREIGN KEY (master_id) REFERENCES master_account (accountID))
 """)
-
-
-
 
 
 # cursor.execute("""
