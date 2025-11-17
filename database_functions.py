@@ -63,9 +63,7 @@ def remove_entry(id):
 def update_entry(email, username, password, note, id):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor()
-    cursor.execute( "UPDATE entries SET email = ?, SET username = ?, SET password = ?, SET note = ?, WHERE id = ?", 
-                   (email, username, password, note, id)
-    )
+    cursor.execute( "UPDATE entries SET email = ?, SET username = ?, SET password = ?, SET note = ?, WHERE id = ?", (email, username, password, note, id))
     con.commit()
     con.close()
 

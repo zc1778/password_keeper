@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS master_account (
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS entries (
-               id INTEGER PRIMARY KEY AUTOINCREMENT
-               master_id INTEGER NOT NULL
+               id INTEGER PRIMARY KEY AUTOINCREMENT,
+               master_id INTEGER NOT NULL,
                email TEXT NOT NULL, 
                username TEXT NOT NULL, 
                password TEXT NOT NULL, 
