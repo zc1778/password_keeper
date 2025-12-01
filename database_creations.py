@@ -33,6 +33,16 @@ CREATE TABLE IF NOT EXISTS entries (
 """)
 
 
+
+
+
+
+
+
+
+
+
+
 # cursor.execute("""
 # CREATE TABLE IF NOT EXISTS master (
 #     student_id INTEGER,

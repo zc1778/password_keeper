@@ -12,3 +12,4 @@ https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/
 
 https://www.geeksforgeeks.org/python/placeholders-in-jinja2-template-python/
 -- Helped showing how to iterate tuple for displaying in HTML page
+
