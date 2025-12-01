@@ -1,0 +1,97 @@
+/* button style copied from https://getcssscan.com/css-buttons-examples 
+    -button 21 */
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+p {
+    color: white;
+    padding: 5%;
+}
+
+label {
+    color: white;
+}
+
+td {
+    padding: 10%;
+}
+
+.home_button {
+    margin-right: 50%;
+}
+
+#home_table {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#body_container {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    text-align: center;
+    border-style: solid;
+    border-width: 5px;
+    border-color: aqua;
+}
+
+button, #registration_button, #add_entry_button, #login_button {
+    margin-top: 5%;
+    margin-bottom: 25%;
+    margin-right: 5%;
+    margin-left: 5%;
+    align-items: center;
+    appearance: none;
+    background-color: aqua;
+    background-image: linear-gradient(1deg, aqua, aqua 99%);
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border-radius: 100px;
+    border-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: CircularStd,sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s,background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+#login_button {
+  margin-right: 5%;
+}
+
+#registration_button {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#logo_img {
+    width: 20%;
+    height: 20%;
+}
+
+input {
+    margin-bottom: 5%;
+}

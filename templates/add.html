@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+        </head>
+        <body>
+            <div id="body_container">
+                <img src="{{ url_for('static', filename='PassWord_Keeper_Logo.png') }}" alt="password keeper logo" id="logo_img">
+                <form id="add_entry_form" method="post" action="{{ url_for('add') }}">
+                    <label>Email:</label><br>
+                    <input type="text" name="email"><br>
+                    <label>Username:</label><br>
+                    <input type="text" name="username"><br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password"><br>
+                    <label>Service:</label><br>
+                    <input type="text" name="service"><br>
+                    <label>Note:</label><br>
+                    <input type="text" name="note"><br>
+                    <input type="submit" value="Add Entry" id="add_entry_button">
+                </form>
+            </div>
+        </body>
+    </html> 
