@@ -41,7 +41,7 @@ def sign_up():
           return render_template('sign_up.html', error="This user already exists, no need to sign up!")
       else:
           database_functions.add_master(user_email, user_password)
-          return redirect(url_for('login.html'))
+          return redirect(url_for('login'))
    return render_template('sign_up.html')
       
    #Cross check if info already exists
