@@ -38,11 +38,11 @@ def get_master(master_user):
 
 
 
-def add_entry(master_id, email, username, password, service, note):
+def add_entry(email, username, password, service, note):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor()
-    cursor.execute("INSERT INTO entries (master_id, email, username, password, service, note) VALUES (?, ?, ?, ?, ?, ?)", 
-                   (master_id, email, username, password, service, note)
+    cursor.execute("INSERT INTO entries (email, username, password, service, note) VALUES (?, ?, ?, ?, ?)", 
+                   (email, username, password, service, note)
                    )
     con.commit()
     con.close()
@@ -86,9 +86,7 @@ def get_entry_service(service):
 def get_all_entries(master_id):
     con = sqlite3.connect("password_keeper.db")
     cursor = con.cursor() 
-    cursor.execute("SELECT * FROM entries  WHERE master_id = ?",
-                   (master_id,)
-    )
+    cursor.execute("SELECT * FROM entries")
     get_all = cursor.fetchall()
     con.close()
     return get_all

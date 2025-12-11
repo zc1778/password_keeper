@@ -3,7 +3,7 @@
 # https://www.bing.com/videos/riverview/relatedvideo&q=flask+html+link+video&&mid=0869F04EAAF5C82134C00869F04EAAF5C82134C0&mmscn=mtsc&aps=660&FORM=VRDGAR 
 
 
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
 import database_functions
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ app = Flask(__name__)
 def index():
    return render_template('index.html')
 
-
+#This app route and function is the logic for our Login 
 @app.route('/login', methods = ["GET", "POST"])
 def login():
    if request.method == "POST":
@@ -26,11 +26,7 @@ def login():
           return render_template('login.html', error="Sorry, your username or password is incorrect, please try again!")
    return render_template('login.html')
 
-
-   #Cross check database for fail or success
-   #if success
-   #    return redirect(url_for('home'))
-
+#This approute and code is the logic for our Sign up
 @app.route('/sign_up', methods = ["GET", "POST"])
 def sign_up():
    if request.method == "POST":
@@ -41,18 +37,15 @@ def sign_up():
           return render_template('sign_up.html', error="This user already exists, no need to sign up!")
       else:
           database_functions.add_master(user_email, user_password)
-          return redirect(url_for('login'))
+          return redirect(url_for('home'))
    return render_template('sign_up.html')
-      
-   #Cross check if info already exists
-   #If success
-   #    return redirect(url_for('home'))
 
-
+#This is the route to go the home page
 @app.route('/home')
 def home():
    return render_template('home.html')
 
+#This is the logic to add Passwords to the password Keeper
 @app.route('/add', methods = ["GET", "POST"])
 def add():
    if request.method == "POST":
@@ -65,10 +58,11 @@ def add():
       return redirect(url_for('home'))
    return render_template('add.html')
 
+#This is the route and logic to pull up the passwords and stuff for a certain user
 @app.route('/browse', methods = ["GET"])
 def browse():
    #replace test_tuple with a fetch all from cursor
-   test_tuple = (("test", "test", "test"), ("test2", "test2", "test2"))
+   test_tuple = database_functions.get_all_entries(0)
    return render_template('browse.html', database_data = test_tuple)
 
 

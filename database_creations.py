@@ -11,7 +11,7 @@ cursor = con.cursor()
 
 
 
-
+#These lines of SQL create our table to store the accounts for the software itself
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS master_account (
     accountID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,17 +19,16 @@ CREATE TABLE IF NOT EXISTS master_account (
     master_password TEXT NOT NULL)
 """)
 
-
+#These lines of SQL create the table to store all the passwords for every account. 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS entries (
                id INTEGER PRIMARY KEY AUTOINCREMENT,
-               master_id INTEGER NOT NULL,
                email TEXT NOT NULL, 
                username TEXT NOT NULL, 
                password TEXT NOT NULL, 
                service TEXT NOT NULL, 
-               note TEXT,
-               FOREIGN KEY (master_id) REFERENCES master_account (accountID))
+               note TEXT
+               );
 """)
 
 
